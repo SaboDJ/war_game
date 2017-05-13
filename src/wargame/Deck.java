@@ -7,7 +7,7 @@ import java.util.Collections;
  * Manages a single deck
  */
 public class Deck {
-    ArrayList<Card> cards;
+    private ArrayList<Card> cards;
 
 
     /**
