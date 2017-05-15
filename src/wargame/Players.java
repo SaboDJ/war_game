@@ -10,17 +10,18 @@ import java.util.ArrayList;
  */
 public class Players {
     ArrayList<Player> players = new ArrayList<>();
-
+    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
     /**
      * Creates a group of players. Takes user input to get the number of players to create.
      */
     public void createPlayers() {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        //BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         System.out.print("How many players?: ");
         try {
-            String countString = reader.readLine();
+            String countString = this.reader.readLine();
+           // reader.close();
             int count = Integer.valueOf(countString);
             if (count < 2 || count > 10) {
                 System.out.println("Number of players must be between 2 and 10 inclusive");
@@ -47,8 +48,9 @@ public class Players {
         int num = players.size() + 1;
         System.out.println("Enter the name of player " + num + ": ");
         try {
-            String name = reader.readLine();
-            if (name.length() == 0) {
+            String name = this.reader.readLine();
+ //           reader.close();
+            if (name == null || name.isEmpty()) {
                 System.out.println("Name cannot be blank");
                 createPlayer();
             }
